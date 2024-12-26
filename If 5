@@ -1,0 +1,82 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Функція для підрахунку додатних чисел
+// Введення даних
+void countPositiveNumbers() {
+    int num1, num2, num3, count = 0;
+// Обчислення виразу 
+    cout << "Введіть три цілих числа: ";
+    cin >> num1 >> num2 >> num3;
+    if (num1 > 0) count++;
+    if (num2 > 0) count++;
+    if (num3 > 0) count++;
+// Виведення результату  
+    cout << "Кількість додатних чисел: " << count << endl;
+}
+
+// Функція для перевірки попадання точки в фігуру (варіант 5)
+// Введення даних
+void checkPointInFigure() {
+// Обчислення виразу 
+double x, y, r1 = 1, r2 = 2, a = sqrt(2); 
+// Приклад значень для варіанта 5
+    cout << "Введіть координати точки (x, y): ";
+    cin >> x >> y;
+// Перевірка виразу
+    if (pow(x, 2) + pow(y, 2) <= pow(r2, 2) && pow(x - a, 2) + pow(y, 2) > pow(r1, 2) &&
+        pow(x, 2) + pow(y - a, 2) > pow(r1, 2) && pow(x + a, 2) + pow(y, 2) > pow(r1, 2)) {
+        cout << "Точка потрапляє в фігуру." << endl;
+    } else {
+// Виведення результату
+    cout << "Точка не потрапляє в фігуру." << endl;
+    }
+}
+
+// Функція для обчислення площі та периметра (наприклад, для круга)
+// Введення даних
+void calculateAreaPerimeter() {
+    double radius;
+    cout << "Введіть радіус круга: ";
+// Обчислення виразу    
+    cin >> radius;
+    double area = M_PI * pow(radius, 2);
+    double perimeter = 2 * M_PI * radius;
+// Виведення результату   
+    cout << "Площа круга: " << area << endl;
+    cout << "Периметр круга: " << perimeter << endl;
+}
+
+int main() {
+    int choice;
+    do {
+        cout << "Меню:\n";
+        cout << "1. Підрахувати кількість додатних чисел\n";
+        cout << "2. Перевірити попадання точки в фігуру\n";
+        cout << "3. Обчислити площу та периметр\n";
+        cout << "0. Вихід\n";
+        cout << "Ваш вибір: ";
+// Виведення результату
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                countPositiveNumbers();
+                break;
+            case 2:
+                checkPointInFigure();
+                break;
+            case 3:
+                calculateAreaPerimeter();
+                break;
+            case 0:
+                cout << "Вихід з програми." << endl;
+                break;
+            default:
+                cout << "Невірний вибір." << endl;
+        }
+    } while (choice != 0);
+
+    return 0;
+}
